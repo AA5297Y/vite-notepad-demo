@@ -1,1 +1,1 @@
-# vite-notepad-demo
+# vite-demo

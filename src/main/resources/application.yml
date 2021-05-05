@@ -1,0 +1,12 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:h2:file:c:/work/.backend/.projects/vite-demo/db
+    platform: h2
+    username: sa
+    password: 1234
+    driverClassName: org.h2.Driver
+  h2:
+    console:
+      enabled: true

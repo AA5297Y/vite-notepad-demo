@@ -1,0 +1,24 @@
+{
+  "name": "vite",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite --config vite.config.js",
+    "ui": "vue ui"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "quill": "^1.3.6",
+    "resize-observer-polyfill": "^1.5.1",
+    "sass": "^1.32.10",
+    "vue": "^3.0.5",
+    "vue-i18n": "^9.1.6",
+    "vue-router": "^4.0.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.2.1",
+    "@vue/compiler-sfc": "^3.0.5",
+    "better-scroll": "^2.2.1",
+    "vite": "^2.1.5"
+  }
+}

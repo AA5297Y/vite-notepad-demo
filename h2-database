@@ -1,0 +1,28 @@
+create table USER (
+  uid long identity(10000000, 1) primary key,
+  username varchar(32) not null,
+  password varchar(128) not null,
+  email varchar(32) not null,
+  locked boolean not null,
+  authorities varchar(32) not null
+);
+insert into USER
+ (username, password, email, locked, authorities)
+ values (
+  'dev',
+  '$2a$10$ZOOjPDr939iFsTKluz8b2Owssjy1yKH1yo0LPeqM82f/LDeriiFN6',
+  'zhong_jian_wei@126.com',
+  false,
+  'admin'
+);
+
+create table AUTHORDETAIL (
+  uid long(8) not null,
+  strictMode boolean not null,
+  keyword varchar(128) not null
+);
+insert into AUTHORDETAIL values (
+  100000000,
+  true,
+  'test keyword'
+ );
