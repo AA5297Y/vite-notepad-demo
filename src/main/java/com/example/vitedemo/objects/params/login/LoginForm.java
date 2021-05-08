@@ -1,4 +1,4 @@
-package com.example.vitedemo.object.parameters.login;
+package com.example.vitedemo.objects.params.login;
 
 public class LoginForm {
   private String username;

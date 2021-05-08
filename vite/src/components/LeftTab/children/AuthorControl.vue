@@ -1,5 +1,5 @@
 <template>
-  <div class="user-control" :style="{color: app.theme.primary}">
+  <div class="author-control" :style="{color: app.theme.primary}">
     <avatar @click="(app.login && app.author.uid === app.user.uid) ? me() : ''" :width="100" :height="100" primary="white"
             secondary="dimgrey" shadow-on-hover>
     </avatar>
@@ -15,7 +15,7 @@
       <div class="text">
         <p>
           <span class="iconfont icon-task"></span>
-          {{app.authorDetial.keyword}}
+          {{app.author.keyword}}
         </p>
       </div>
     </div>
@@ -23,25 +23,10 @@
 </template>
 
 <script>
-import BtnGroup from "@/components/Generic/BtnGroup/BtnGroup.vue";
-import GenBtn from "@/components/Generic/GenBtn/GenBtn.vue";
-import Avatar from "@/components/Generic/Avatar/Avatar.vue";
-import Window from "@/components/Generic/Window/Window.vue";
-import Card from "@/components/Generic/Card/Card.vue";
-import GenBtnFlat from "@/components/Generic/GenBtnFlat/GenBtnFlat.vue";
-import Spacing from "@/components/Generic/Spacing/Spacing.vue";
-
 export default {
-  name: "UserControl",
-  components: {Spacing, GenBtnFlat, Card, Window, Avatar, GenBtn, BtnGroup},
-  emits: ['toMe'],
+  name: "AuthorControl",
   props: {
     app: Object
-  },
-  data() {
-    return {
-
-    }
   },
   methods: {
     me() {
@@ -52,8 +37,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .user-control {
-    min-height: 20rem;
+  .author-control {
+    padding: 3rem 0;
     position: relative;
     display: flex;
     flex-flow: column nowrap;

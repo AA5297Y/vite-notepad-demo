@@ -2,16 +2,17 @@ import {createRouter, createWebHistory} from 'vue-router'
 
 const P404 = () => import('@/views/404/P404.vue')
 const Login = () => import('@/views/Login/Login.vue')
+const SignUp = () => import('@/views/SignUp/SignUp.vue')
 const AppContainer = () => import('@/components/AppContainer.vue')
-  const Message = () => import('@/views/Message/Message.vue')
-    const MyMessage = () => import('@/views/Message/children/MyMessage.vue')
-    const Notification = () => import('@/views/Message/children/Notification.vue')
+  const Discovery = () => import('@/views/Discovery/Discovery.vue')
   const Activity = () => import('@/views/Activity/Activity.vue')
     const ActivityContainer = () => import('@/views/Activity/children/ActivityContainer.vue')
   const Home = () => import('@/views/Home/Home.vue')
   const Note = () => import('@/views/Note/Note.vue')
-  const Code = () => import('@/views/Code/Code.vue')
-  const NoteEditor = () => import('@/views/NoteEditor/NoteEditor.vue')
+    const NoteEditor = () => import('@/views/NoteEditor/NoteEditor.vue')
+  const Message = () => import('@/views/Message/Message.vue')
+    const MyMessage = () => import('@/views/Message/children/MyMessage.vue')
+    const Notification = () => import('@/views/Message/children/Notification.vue')
 
   const Me = () => import('@/views/Me/Me.vue')
     const Profile = () => import('@/views/Me/children/Profile.vue')
@@ -35,8 +36,13 @@ const routers = createRouter({
       component: Login
     },
     {
-      path: '/user/:id',
-      name: 'User',
+      path: '/signUp',
+      name: 'SignUp',
+      component: SignUp
+    },
+    {
+      path: '/author/:id',
+      name: 'Author',
       component: AppContainer,
       props: true,
       children: [
@@ -45,71 +51,71 @@ const routers = createRouter({
           redirect: { name: 'Home' }
         },
         {
-          path: 'messages',
-          name: 'User/Messages',
-          component: Message,
-          redirect: { name: 'User/Messages/MyMessages' },
-          children: [
-            {
-              path: 'myMessage',
-              name: 'User/Messages/MyMessages',
-              component: MyMessage
-            },
-            {
-              path: 'Notification',
-              name: 'User/Messages/Notifications',
-              component: Notification
-            }
-          ]
+          path: 'discovery',
+          name: 'Author/Discovery',
+          component: Discovery
         },
         {
           path: 'activities',
-          name: 'User/Activities',
+          name: 'Author/Activities',
           component: Activity,
-          redirect: { name: 'User/Activities/All' },
+          redirect: { name: 'Author/Activities/All' },
           children: [
             {
               path: '',
-              name: 'User/Activities/All',
+              name: 'Author/Activities/All',
               component: ActivityContainer
             },
             {
               path: 'follow/:uid',
-              name: 'User/Activities/Follow',
+              name: 'Author/Activities/Follow',
               component: ActivityContainer
             }
           ]
         },
         {
           path: 'home',
-          name: 'User/Home',
+          name: 'Author/Home',
           component: Home
         },
         {
           path: 'notes',
-          name: 'User/Notes',
+          name: 'Author/Notes',
           component: Note,
         },
         {
-          path: 'codes',
-          name: 'User/Codes',
-          component: Code
+          path: 'messages',
+          name: 'Author/Messages',
+          component: Message,
+          redirect: { name: 'Author/Messages/MyMessages' },
+          children: [
+            {
+              path: 'myMessage',
+              name: 'Author/Messages/MyMessages',
+              component: MyMessage
+            },
+            {
+              path: 'Notification',
+              name: 'Author/Messages/Notifications',
+              component: Notification
+            }
+          ]
         },
         {
           path: 'me',
-          name: 'User/Me',
+          name: 'Author/Me',
           component: Me,
           children: [
             {
               path: 'profile',
-              name: 'User/Me/Profile',
+              name: 'Author/Me/Profile',
               component: Profile
             }
           ]
         },
         {
           path: 'noteEditor',
-          name: 'User/Notes/NoteEditor',
+          name: 'Author/NoteEditor',
           component: NoteEditor
         }
       ]

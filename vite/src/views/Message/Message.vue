@@ -19,10 +19,9 @@
 
 <script>
 import MessageRouter from "./children/MessageRouter.vue";
-import Loading from "@/components/Generic/Loading/Loading.vue";
 export default {
   name: "Message",
-  components: { Loading, MessageRouter },
+  components: { MessageRouter },
   props: {
     app: { type: Object }
   },

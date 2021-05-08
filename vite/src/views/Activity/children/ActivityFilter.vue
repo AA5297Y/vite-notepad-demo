@@ -35,12 +35,8 @@
 </template>
 
 <script>
-import HorList from "@/components/Generic/HorList/HorList.vue";
-import Card from "../../../components/Generic/Card/Card.vue";
-import Avatar from "@/components/Generic/Avatar/Avatar.vue";
 export default {
   name: "ActivityFilter",
-  components: {Avatar, Card, HorList},
   props: {
     app: { type: Object },
     selected: { type: Object }
@@ -66,10 +62,10 @@ export default {
     changeSelected(target) {
       if (target.uid === this.selected.uid) {
         this.$emit('update:selected', {})
-        this.$router.push({ name: 'User/Activities/All'})
+        this.$router.push({ name: 'Author/Activities/All'})
       } else {
         this.$emit('update:selected', target)
-        this.$router.push({ name: 'User/Activities/Follow', params: { uid: target.uid } })
+        this.$router.push({ name: 'Author/Activities/Follow', params: { uid: target.uid } })
       }
     }
   }

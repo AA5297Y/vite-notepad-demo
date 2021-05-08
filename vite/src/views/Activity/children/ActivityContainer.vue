@@ -6,8 +6,14 @@
           <div class="user">
             <avatar :width="40" :height="40" :primary="app.theme.secondary" :secondary="app.theme.secondary"></avatar>
             <span class="title">{{activity.authorName}}</span>
-            <gen-btn-flat :primary="app.theme.card" :secondary="app.theme.secondary" margin>
+            <gen-btn-flat :primary="app.theme.card"
+                          :secondary="app.theme.secondary" margin>
               {{$t('message.router.activity.type.' + activity.type)}}
+            </gen-btn-flat>
+            <gen-btn-flat v-if="activity.private"
+                          :primary="app.theme.card"
+                          :secondary="app.theme.strong" margin>
+              {{$t('message.router.activity.private')}}
             </gen-btn-flat>
           </div>
         </template>
@@ -46,26 +52,19 @@
 </template>
 
 <script>
-import VetList from "@/components/Generic/VetList/VetList.vue";
-import Card from "@/components/Generic/Card/Card.vue";
-import GenBtnFlat from "@/components/Generic/GenBtnFlat/GenBtnFlat.vue";
-import Avatar from "@/components/Generic/Avatar/Avatar.vue";
-import Spacing from "@/components/Generic/Spacing/Spacing.vue";
-import FeedBack from "@/components/Generic/FeedBack/FeedBack.vue";
 export default {
   name: "ActivityContainer",
-  components: {FeedBack, Spacing, Avatar, GenBtnFlat, Card, VetList},
   props: {
     app: {type: Object}
   },
   data() {
     return {
       activities: [
-        {id: 0, authorName: 'user1', type: 'note', content: {title: 'title', tags: ['test'], desc: 'content'}, time: '2021-4-20 18:20'},
-        {id: 1, authorName: 'user1', type: 'note', content: {title: 'title', tags: ['test'], desc: 'content'}, time: '2021-4-20 18:20'},
-        {id: 2, authorName: 'user1', type: 'comment', content: {title: 'title', tags: ['test'], desc: 'content'}, time: '2021-4-20 18:20'},
-        {id: 3, authorName: 'user1', type: 'comment', content: {title: 'title', tags: ['test'], desc: 'content'}, time: '2021-4-20 18:20'},
-        {id: 4, authorName: 'user1', type: 'reply', content: {title: 'title', tags: ['test'], desc: 'content'}, time: '2021-4-20 18:20'}
+        {id: 0, authorName: 'user1', type: 'note', private: true, content: {title: 'title', tags: ['test'], desc: 'content'}, time: '2021-4-20 18:20'},
+        {id: 1, authorName: 'user1', type: 'note', private: false, content: {title: 'title', tags: ['test'], desc: 'content'}, time: '2021-4-20 18:20'},
+        {id: 2, authorName: 'user1', type: 'comment', private: false, content: {title: 'title', tags: ['test'], desc: 'content'}, time: '2021-4-20 18:20'},
+        {id: 3, authorName: 'user1', type: 'comment', private: false, content: {title: 'title', tags: ['test'], desc: 'content'}, time: '2021-4-20 18:20'},
+        {id: 4, authorName: 'user1', type: 'reply', private: false, content: {title: 'title', tags: ['test'], desc: 'content'}, time: '2021-4-20 18:20'}
       ]
     }
   }

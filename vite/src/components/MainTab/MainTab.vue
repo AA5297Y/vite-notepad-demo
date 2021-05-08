@@ -17,12 +17,10 @@
 
 <script>
 import TopBar from './TopBar/TopBar.vue'
-import Loading from "@/components/Generic/Loading/Loading.vue";
-import VetList from "@/components/Generic/VetList/VetList.vue";
 
 export default {
   name: 'MainTab',
-  components: {VetList, Loading, TopBar },
+  components: {TopBar },
   props: {
     app: { type: Object }
   },

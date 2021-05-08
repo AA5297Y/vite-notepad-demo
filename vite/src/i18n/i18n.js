@@ -14,23 +14,30 @@ const messages = {
         P404: {
           notFound: '页面未找到'
         },
-        message: {
-          name: '消息',
-          myMessage: '我的消息',
-          notification: '系统通知',
-          unRead: '未读'
+        discovery: {
+          name: '发现',
+          search: {
+            titleL: '搜索',
+            titleR: '网络'
+          },
+          type: {
+            user: '用户',
+            activity: '动态',
+            note: '笔记'
+          }
         },
         activity: {
           name: '动态',
           myMessage: '我的消息',
           myActivity: '我的动态',
           notification: '系统消息',
+          private: '私密',
           type: {
             note: '笔记',
             comment: '评论',
             reply: '回复',
             share: '分享',
-            mail: '私信',
+            mail: '私信'
           }
         },
         home: {
@@ -50,15 +57,6 @@ const messages = {
           working: '编辑中',
           tagFilter: '按标签过滤'
         },
-        code: {
-          name: '代码',
-          update: '更新',
-          updateType: {
-            bugFix: '错误修复',
-            normalUpdate: '常规更新',
-            newFeature: '新功能'
-          }
-        },
         noteEditor: {
           name: '笔记编辑器',
           save: '保存',
@@ -67,6 +65,12 @@ const messages = {
           desc: '描述',
           tags: '标签',
           newTag: '添加标签',
+        },
+        message: {
+          name: '消息',
+          myMessage: '我的消息',
+          notification: '系统通知',
+          unRead: '未读'
         }
       },
       button: {
@@ -81,13 +85,22 @@ const messages = {
         search: '搜索',
         new: '新建',
         edit: '编辑',
-        delete: '删除'
+        delete: '删除',
+        follow: '关注',
+        disFollow: '取消关注',
+        profile: '设置'
       },
       text: {
         login: '登录',
         signUp: '注册',
+        email: '邮箱',
+        emailFormatError: '邮箱格式错误',
         username: '用户名',
-        password: '密码'
+        usernameFormatError: '用户名必须为6-32位',
+        password: '密码',
+        passwordFormatError: '密码仅必须为8-32位字母，数字或_,?.+-*/等符号',
+        repeatPassword: '重复密码',
+        repeatPasswordNotEqual: '重复密码不相同'
       },
       dateTime: {
         year: '年',
@@ -96,87 +109,9 @@ const messages = {
         hour: '小时',
         minute: '分钟',
         ago: '前'
-      }
-    }
-  },
-
-  'en': {
-    message: {
-      router: {
-        P404: {
-          notFound: 'Page not Found.'
-        },
-        message: {
-          name: 'Message',
-          myMessage: 'MyMessage',
-          notification: 'Notification',
-          unRead: 'Unread'
-        },
-        activity: {
-          name: 'Activity',
-          myActivity: 'MyActivity',
-          type: {
-            note: 'Article',
-            comment: 'Comment',
-            reply: 'Reply',
-            share: 'Share',
-            mail: 'Mail'
-          }
-        },
-        home: {
-          name: 'Home',
-          welcomeBack: 'Welcome back，',
-          welcomeL: 'Welcome To ',
-          welcomeR: '`s site',
-          working: 'Working:',
-          recent: 'Recently '
-        },
-        note: {
-          name: 'Note',
-          private: 'Private',
-          public: 'Public',
-          onTop: 'Top',
-          collection: 'Collection',
-          working: 'Working',
-          tagFilter: 'TagFilter'
-        },
-        code: {
-          name: 'Code',
-          update: 'Update',
-          updateType: {
-            bugFix: 'BugFix',
-            normalUpdate: 'NormalUpdate',
-            newFeature: 'NewFeature'
-          }
-        }
       },
-      button: {
-        login: 'Login',
-        signUp: 'SignUp',
-        confirm: 'Confirm',
-        cancel: 'Cancel',
-        yes: 'Yes',
-        no: 'No',
-        open: 'open',
-        change: 'Change',
-        search: 'Search',
-        new: 'New',
-        edit: 'Edit',
-        delete: 'Delete'
-      },
-      text: {
-        login: 'Login',
-        signUp: 'SignUp',
-        username: 'user name',
-        password: 'password'
-      },
-      dateTime: {
-        year: 'Year',
-        month: 'Month',
-        date: 'Day',
-        hour: 'Hours',
-        minute: 'Minutes',
-        ago: ' ago'
+      messages: {
+        'Bad credentials': '账号或密码错误',
       }
     }
   }

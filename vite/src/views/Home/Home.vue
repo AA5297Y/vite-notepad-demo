@@ -13,13 +13,12 @@
 </template>
 
 <script>
-import VetList from "@/components/Generic/VetList/VetList.vue";
 import Welcome from "./children/Welcome.vue";
 import MiniNote from "./children/MiniNote.vue";
 import MiniActivity from "./children/MiniActivity.vue";
 export default {
   name: 'Home',
-  components: {MiniActivity, MiniNote, Welcome, VetList},
+  components: {MiniActivity, MiniNote, Welcome},
   props: {
     app: { type: Object }
   }

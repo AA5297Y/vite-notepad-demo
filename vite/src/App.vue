@@ -9,6 +9,8 @@
                      :app="app" :state="leftTab"
                      @swLeftTab="leftTab = !leftTab"
                      @loginSuccess="loginSuccess"
+                     @loginCheckSuccess="loginCheckSuccess"
+                     @loginCheckFailed="loginCheckFailed"
                      @setAuthor="setAuthor">
           <transition name="show-hide">
             <component v-if="slotProps.loading" :is="Component"></component>
@@ -42,7 +44,6 @@ export default {
         },
         login: false,
         user: {},
-        authorDetial: {},
         author: {}
       }
     }
@@ -61,9 +62,14 @@ export default {
       this.app.user = user
       this.app.login = true
       if (!this.app.author.uid) {
-        this.$router.push({name: 'User/Home', params: {id: this.app.user.uid}})
+        this.$router.push({name: 'Author/Home', params: {id: this.app.user.uid}})
+      } else {
+        this.$router.push({name: 'Author/Home', params: {id: this.app.author.uid}})
       }
-      this.$router.push({name: 'User/Home', params: {id: this.app.author.uid}})
+    },
+    loginCheckSuccess(user) {
+      this.app.user = user
+      this.app.login = true
     },
     loginCheckFailed() {
       this.app.user = {}
@@ -71,7 +77,6 @@ export default {
     },
     setAuthor(json) {
       this.app.author = json
-      console.log(this.app.author)
     }
   }
 }

@@ -6,17 +6,19 @@
 </template>
 
 <script>
-
 import LeftTab from "./LeftTab/LeftTab.vue";
 import MainTab from "./MainTab/MainTab.vue";
+
 import author from "@/api/user/author.js"
+import user from "@/api/user/user.js"
+
 export default {
   name: "App",
   props: {
     app: { type: Object },
     state: { type: Boolean, default: true },
   },
-  emits: [ 'swLeftTab', 'setAuthor' ],
+  emits: [ 'swLeftTab', 'setAuthor', 'loginCheckSuccess', 'loginCheckFailed' ],
   data() {
     return {
     }
@@ -24,15 +26,18 @@ export default {
   components: {MainTab, LeftTab},
   beforeRouteEnter(to, from ,next) {
     let success = function (json) {
+      if (json.status === false) {
+        failed('')
+      }
       next((vm) => {
         vm.$emit('setAuthor', json)
       })
     }
 
     let failed = function (error) {
-      console.log(error)
       next((vm) => {
         vm.$emit('setAuthor', {})
+        vm.$emit('setAuthorDetail', {})
         vm.$router.push({name: '404'})
       })
     }
@@ -42,6 +47,27 @@ export default {
 
     author.getAuthor(
       form,
+      success,
+      failed
+    )
+  },
+  beforeRouteUpdate(to, from ,next) {
+    let success = (json) => {
+      if (json.status === false) {
+        this.$emit('loginCheckFailed')
+      }
+
+      this.$emit('loginCheckSuccess', json)
+      next()
+    }
+
+    let failed = (error) => {
+      this.$emit('loginCheckFailed')
+      next()
+    }
+
+    user.getLogined(
+      {},
       success,
       failed
     )

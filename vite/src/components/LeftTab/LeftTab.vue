@@ -1,21 +1,20 @@
 <template>
   <div :class="state ? 'left-tab' : 'left-tab close'" @scroll.stop.prevent="onscroll">
     <vet-list flex>
-      <user-control :app="app" @toMe="me"></user-control>
-      <on-top-list :app="app" ></on-top-list>
+      <author-control :app="app"></author-control>
+      <author-operations :app="app"></author-operations>
+      <on-top-list :app="app"></on-top-list>
     </vet-list>
   </div>
 </template>
 
 <script>
-import UserControl from "./children/UserControl.vue";
-import VetList from "@/components/Generic/VetList/VetList.vue";
-import GenBtn from "@/components/Generic/GenBtn/GenBtn.vue";
+import AuthorControl from "./children/AuthorControl.vue";
 import OnTopList from "./children/OnTopList.vue";
-
+import AuthorOperations from "./children/AuthorOperations.vue";
 export default {
   name: 'LeftTab',
-  components: {VetList, GenBtn, UserControl, OnTopList},
+  components: {AuthorControl, OnTopList, AuthorOperations},
   props: {
     state: Boolean,
     app: Object
@@ -23,11 +22,6 @@ export default {
   data() {
     return {
 
-    }
-  },
-  methods: {
-    me() {
-      this.$router.push({name: 'Me'})
     }
   },
   mounted() {

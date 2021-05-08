@@ -11,15 +11,12 @@
 </template>
 
 <script>
-import GenBtnFlat from "@/components/Generic/GenBtnFlat/GenBtnFlat.vue"
-import Card from "@/components/Generic/Card/Card.vue"
-import Spacing from "@/components/Generic/Spacing/Spacing.vue";
 import ToolBar from "./children/ToolBar.vue";
 import NotePagination from "./children/NotePagination.vue";
 
 export default {
   name: "Note",
-  components: { NotePagination, ToolBar, Spacing, Card, GenBtnFlat },
+  components: { NotePagination, ToolBar },
   props: {
     app: { type: Object }
   },

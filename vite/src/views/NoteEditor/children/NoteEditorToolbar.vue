@@ -116,16 +116,9 @@
 
 <script>
 import Quill from 'quill'
-import Card from "@/components/Generic/Card/Card.vue"
-import BtnGroup from "@/components/Generic/BtnGroup/BtnGroup.vue"
-import GenTextBox from "@/components/Generic/GenTextBox/GenTextBox.vue";
-import GenBtnFlat from "@/components/Generic/GenBtnFlat/GenBtnFlat.vue";
-import HorList from "@/components/Generic/HorList/HorList.vue";
-import Spacing from "@/components/Generic/Spacing/Spacing.vue";
 
 export default {
   name: "NoteEditorToolbar",
-  components: {Spacing, Card, BtnGroup, GenTextBox, GenBtnFlat, HorList },
   props: {
     app: { type: Object }
   },

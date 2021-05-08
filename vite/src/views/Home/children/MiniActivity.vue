@@ -63,16 +63,8 @@
 </template>
 
 <script>
-import Avatar from "@/components/Generic/Avatar/Avatar.vue"
-import Card from "@/components/Generic/Card/Card.vue"
-import Spacing from "@/components/Generic/Spacing/Spacing.vue"
-import GenBtnFlat from "@/components/Generic/GenBtnFlat/GenBtnFlat.vue"
-import HorList from "@/components/Generic/HorList/HorList.vue"
-import BtnGroup from "@/components/Generic/BtnGroup/BtnGroup.vue"
-import FeedBack from "@/components/Generic/FeedBack/FeedBack.vue"
 export default {
   name: "MiniActivity",
-  components: {BtnGroup, HorList, GenBtnFlat, Spacing, Card, Avatar, FeedBack},
   emits: ['toActivity'],
   props: {
     app: { type: Object }
@@ -87,7 +79,7 @@ export default {
   },
   methods: {
     activity() {
-      this.$router.push({name: 'User/Activities'})
+      this.$router.push({name: 'Author/Activities'})
     }
   }
 }

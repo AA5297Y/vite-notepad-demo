@@ -1,55 +1,55 @@
 <template>
   <div class="router-control">
     <btn-group>
-      <gen-btn :active="/User\/Messages\/*/.test($route.name)"
-               @click="message"
+      <gen-btn :active="/Author\/Discovery\/*/.test($route.name)"
+               @click="discovery"
                :primary="app.theme.primary"
                :secondary="app.theme.secondary"
                transparent xl>
-        <span class="router-icon iconfont icon-email"></span>
-        <span v-if="/User\/Messages\/*/.test($route.name)">
-          {{ $t('message.router.message.name')}}
+        <span class="router-icon iconfont icon-search"></span>
+        <span v-if="/Author\/Discovery\/*/.test($route.name)">
+          {{ $t('message.router.discovery.name')}}
         </span>
       </gen-btn>
-      <gen-btn :active="/User\/Activities\/*/.test($route.name)"
+      <gen-btn :active="/Author\/Activities\/*/.test($route.name)"
                @click="activity"
                :primary="app.theme.primary"
                :secondary="app.theme.secondary"
                transparent xl>
         <span class="router-icon iconfont icon-camera"></span>
-        <span v-if="/User\/Activities\/*/.test($route.name)">
+        <span v-if="/Author\/Activities\/*/.test($route.name)">
           {{ $t('message.router.activity.name') }}
         </span>
       </gen-btn>
-      <gen-btn :active="/User\/Home\/*/.test($route.name)"
+      <gen-btn :active="/Author\/Home\/*/.test($route.name)"
                @click="home"
                :primary="app.theme.primary"
                :secondary="app.theme.secondary"
                transparent xl>
         <span class="router-icon iconfont icon-home"></span>
-        <span v-if="/User\/Home\/*/.test($route.name)">
+        <span v-if="/Author\/Home\/*/.test($route.name)">
           {{ $t('message.router.home.name') }}</span>
       </gen-btn>
-      <gen-btn :active="/User\/Notes\/*/.test($route.name)"
+      <gen-btn :active="/Author\/Notes\/*/.test($route.name)"
                @click="note"
                :primary="app.theme.primary"
                :secondary="app.theme.secondary"
                transparent xl>
         <span class="router-icon iconfont icon-edit"></span>
-        <span v-if="/User\/Notes\/*/.test($route.name)">
+        <span v-if="/Author\/Notes\/*/.test($route.name)">
           {{ $t('message.router.note.name') }}
         </span>
-        <span v-if="/User\/Notes\/NoteEditor\/*/.test($route.name)"
+        <span v-if="/Author\/Notes\/NoteEditor\/*/.test($route.name)"
               class="router-icon iconfont icon-elipsis"></span>
       </gen-btn>
-      <gen-btn :active="/User\/Codes\/*/.test($route.name)"
-               @click="code"
+      <gen-btn :active="/Author\/Messages\/*/.test($route.name)"
+               @click="message"
                :primary="app.theme.primary"
                :secondary="app.theme.secondary"
                transparent xl>
-        <span class="router-icon iconfont icon-code"></span>
-        <span v-if="/User\/Codes\/*/.test($route.name)">
-          {{ $t('message.router.code.name') }}
+        <span class="router-icon iconfont icon-email"></span>
+        <span v-if="/Author\/Messages\/*/.test($route.name)">
+          {{ $t('message.router.message.name')}}
         </span>
       </gen-btn>
     </btn-group>
@@ -57,44 +57,40 @@
 </template>
 
 <script>
-import GenBtn from "@/components/Generic/GenBtn/GenBtn.vue";
-import BtnGroup from "../../Generic/BtnGroup/BtnGroup.vue";
-
 export default {
   name: "RouterControl",
-  components: {BtnGroup, GenBtn},
   props: {
     app: Object
   },
   methods: {
     me() {
-      if (this.$route.name !== 'User/Me') {
-        this.$router.push({name: 'User/Me'})
+      if (this.$route.name !== 'Author/Me') {
+        this.$router.push({name: 'Author/Me'})
       }
     },
-    message() {
-      if (this.$route.name !== 'User/Messages') {
-        this.$router.push({name: 'User/Messages'})
+    discovery() {
+      if (this.$route.name !== 'Author/Discovery') {
+        this.$router.push({name: 'Author/Discovery'})
       }
     },
     activity() {
-      if (this.$route.name !== 'User/Activities') {
-        this.$router.push({name: 'User/Activities'})
+      if (this.$route.name !== 'Author/Activities') {
+        this.$router.push({name: 'Author/Activities'})
       }
     },
     home() {
-      if (this.$route.name !== 'User/Home') {
-        this.$router.push({name: 'User/Home'})
+      if (this.$route.name !== 'Author/Home') {
+        this.$router.push({name: 'Author/Home'})
       }
     },
     note() {
-      if (this.$route.name !== 'User/Notes') {
-        this.$router.push({name: 'User/Notes'})
+      if (this.$route.name !== 'Author/Notes') {
+        this.$router.push({name: 'Author/Notes'})
       }
     },
-    code() {
-      if (this.$route.name !== 'User/Codes') {
-        this.$router.push({name: 'User/Codes'})
+    message() {
+      if (this.$route.name !== 'Author/Messages') {
+        this.$router.push({name: 'Author/Messages'})
       }
     }
   }

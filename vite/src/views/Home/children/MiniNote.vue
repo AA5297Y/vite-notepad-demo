@@ -39,14 +39,8 @@
 </template>
 
 <script>
-import GenBtnFlat from "@/components/Generic/GenBtnFlat/GenBtnFlat.vue";
-import Card from "@/components/Generic/Card/Card.vue";
-import Spacing from "@/components/Generic/Spacing/Spacing.vue";
-import HorList from "@/components/Generic/HorList/HorList.vue";
-
 export default {
   name: "MiniNote",
-  components: {GenBtnFlat, Card, Spacing, HorList},
   emits: ['toNote'],
   props: {
     app: { type: Object }
@@ -63,7 +57,7 @@ export default {
   },
   methods: {
     note() {
-      this.$router.push({name: 'User/Notes'})
+      this.$router.push({name: 'Author/Notes'})
     }
   }
 }

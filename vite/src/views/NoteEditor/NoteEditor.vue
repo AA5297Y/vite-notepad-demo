@@ -14,14 +14,13 @@
 </template>
 
 <script>
-import VetList from "@/components/Generic/VetList/VetList.vue";
 import Quill from 'quill'
 import 'quill/dist/quill.snow.css'
 import NoteEditorToolbar from "./children/NoteEditorToolbar.vue";
 
 export default {
   name: "NoteEditor",
-  components: { NoteEditorToolbar, VetList },
+  components: { NoteEditorToolbar },
   props: {
     app: { type: Object }
   },

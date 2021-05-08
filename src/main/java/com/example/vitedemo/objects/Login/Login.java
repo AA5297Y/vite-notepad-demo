@@ -3,14 +3,14 @@ package com.example.vitedemo.objects.Login;
 import java.io.Serializable;
 
 public class Login implements Serializable {
-  private boolean status;
+  private Boolean status;
   private String message;
 
-  public boolean isStatus() {
+  public Boolean getStatus() {
     return status;
   }
 
-  public void setStatus(boolean status) {
+  public void setStatus(Boolean status) {
     this.status = status;
   }
 

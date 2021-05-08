@@ -1,24 +1,21 @@
 <template>
-  <div class="recent-control" :style="{
-    color: app.theme.secondary,
-    border: border ? 'solid 1px' : ''
-  }">
-    <h4>{{$t('message.component.leftTab.onTopList.title')}}</h4>
-    <gen-list-item v-for="item in onTopList" :key="item.id"
-      :primary="app.theme.secondary" :secondary="app.theme.primary">
-      <span>test</span>
-    </gen-list-item>
-  </div>
+    <div class="recent-control" :style="{
+      color: app.theme.secondary,
+      borderTop: 'solid 1px ' + app.theme.primary
+    }">
+      <h4>{{$t('message.component.leftTab.onTopList.title')}}</h4>
+      <gen-list-item v-for="item in onTopList" :key="item.id"
+        :primary="app.theme.secondary" :secondary="app.theme.primary">
+        <span>test</span>
+      </gen-list-item>
+    </div>
 </template>
 
 <script>
-import GenListItem from "@/components/Generic/GenListItem/GenListItem.vue";
 export default {
   name: "OnTopList",
-  components: {GenListItem},
   props: {
-    app: { type: Object },
-    border: { type: Boolean, default: false }
+    app: { type: Object }
   },
   data() {
     return {

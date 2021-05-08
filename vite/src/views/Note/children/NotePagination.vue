@@ -1,7 +1,11 @@
 <template>
-  <pagination :page="page" :refHeight="143.08">
+  <pagination :primary="app.theme.primary"
+              :secondary="app.theme.strong"
+              :page="page" :refHeight="143.08">
     <template v-slot="prop">
-      <card :primary="app.theme.primary" :secondary="app.theme.secondary" flat>
+      <card :primary="app.theme.primary"
+            :secondary="app.theme.secondary"
+            flat>
         <template v-slot:head>
           <div class="line">
             <div class="title">
@@ -12,7 +16,10 @@
         <template v-slot:main>
           <div class="line">
             <btn-group>
-              <gen-btn-flat v-for="tag in prop.item.tags" :key="tag" :primary="app.theme.card" :secondary="app.theme.secondary" margin m>
+              <gen-btn-flat v-for="tag in prop.item.tags"
+                            :key="tag" :primary="app.theme.card"
+                            :secondary="app.theme.secondary"
+                            margin m>
                 {{tag}}
               </gen-btn-flat>
             </btn-group>
@@ -29,10 +36,16 @@
               <span class="note-icon iconfont icon-calendar"></span>
               {{prop.item.time}}
             </div>
-            <feed-back :primary="app.theme.primary" :secondary="app.theme.border" disabled></feed-back>
+            <feed-back :primary="app.theme.primary"
+                       :secondary="app.theme.border"
+                       disabled></feed-back>
             <btn-group>
-              <gen-btn-flat :primary="app.theme.card" :secondary="app.theme.strong" margin m>{{$t('message.button.edit')}}</gen-btn-flat>
-              <gen-btn-flat :primary="app.theme.card" secondary="indianred" margin m>{{$t('message.button.delete')}}</gen-btn-flat>
+              <gen-btn-flat :primary="app.theme.card"
+                            :secondary="app.theme.strong"
+                            margin m>{{$t('message.button.edit')}}</gen-btn-flat>
+              <gen-btn-flat :primary="app.theme.card"
+                            secondary="indianred"
+                            margin m>{{$t('message.button.delete')}}</gen-btn-flat>
             </btn-group>
           </div>
         </template>
@@ -42,14 +55,8 @@
 </template>
 
 <script>
-import GenBtnFlat from "@/components/Generic/GenBtnFlat/GenBtnFlat.vue";
-import Pagination from "@/components/Generic/Pagination/Pagination.vue";
-import BtnGroup from "@/components/Generic/BtnGroup/BtnGroup.vue";
-import Card from "@/components/Generic/Card/Card.vue";
-import FeedBack from "@/components/Generic/FeedBack/FeedBack.vue";
 export default {
   name: "NotePagination",
-  components: {FeedBack, GenBtnFlat, Pagination, BtnGroup, Card},
   props: {
     app: { type: Object },
     filter: { type: Array },

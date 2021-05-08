@@ -5,16 +5,10 @@
 </template>
 
 <script>
-import HorList from "@/components/Generic/HorList/HorList.vue";
-import Card from "@/components/Generic/Card/Card.vue";
-import GenBtnFlat from "@/components/Generic/GenBtnFlat/GenBtnFlat.vue";
-import Spacing from "@/components/Generic/Spacing/Spacing.vue";
-import BtnGroup from "@/components/Generic/BtnGroup/BtnGroup.vue";
-import GenTextBox from "@/components/Generic/GenTextBox/GenTextBox.vue";
 import RouterControl from "./RouterControl.vue";
 
 export default {
-  components: {HorList, Card, RouterControl, GenTextBox, BtnGroup, Spacing, GenBtnFlat},
+  components: {RouterControl},
   emits: ['swLeftTab'],
   props: {
     app: { type: Object }

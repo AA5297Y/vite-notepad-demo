@@ -38,13 +38,8 @@
 </template>
 
 <script>
-import GenBtnFlat from "@/components/Generic/GenBtnFlat/GenBtnFlat.vue";
-import BtnGroup from "@/components/Generic/BtnGroup/BtnGroup.vue";
-import Card from "@/components/Generic/Card/Card.vue";
-import Pagination from "@/components/Generic/Pagination/Pagination.vue";
 export default {
   name: "MyMessage",
-  components: {Pagination, Card, GenBtnFlat, BtnGroup},
   props: {
     app: { type: Object }
   },

@@ -1,12 +1,12 @@
 <template>
   <div class="filter-container">
     <btn-group>
-      <gen-btn-flat :value="/User\/Messages\/MyMessages/.test($route.name)" @click="changeRouter('User/Messages/MyMessages')"
+      <gen-btn-flat :value="/User\/Messages\/MyMessages/.test($route.name)" @click="changeRouter('Author/Messages/MyMessages')"
                     :primary="app.theme.secondary" :secondary="app.theme.primary" transparent l>
         <span class="message-icon iconfont icon-email"></span>
         <span>{{$t('message.router.message.myMessage')}}</span>
       </gen-btn-flat>
-      <gen-btn-flat :value="/User\/Messages\/Notifications/.test($route.name)" @click="changeRouter('User/Messages/Notifications')"
+      <gen-btn-flat :value="/User\/Messages\/Notifications/.test($route.name)" @click="changeRouter('Author/Messages/Notifications')"
                     :primary="app.theme.secondary" :secondary="app.theme.primary" transparent l>
         <span class="message-icon iconfont icon-notification"></span>
         <span>{{$t('message.router.message.notification')}}</span>
@@ -16,11 +16,8 @@
 </template>
 
 <script>
-import BtnGroup from "@/components/Generic/BtnGroup/BtnGroup.vue";
-import GenBtnFlat from "@/components/Generic/GenBtnFlat/GenBtnFlat.vue";
 export default {
   name: "MessageRouter",
-  components: {GenBtnFlat, BtnGroup},
   props: {
     app: { type: Object },
     router: { type: String }

@@ -18,14 +18,12 @@
 </template>
 
 <script>
-import VetList from "@/components/Generic/VetList/VetList.vue";
 import ActivityRouter from "../Message/children/MessageRouter.vue";
 import ActivityContainer from "./children/ActivityContainer.vue";
 import ActivityFilter from "./children/ActivityFilter.vue";
-import Loading from "@/components/Generic/Loading/Loading.vue"
 export default {
   name: "Activity",
-  components: {Loading, ActivityFilter, ActivityContainer, ActivityRouter, VetList},
+  components: {ActivityFilter, ActivityContainer, ActivityRouter},
   props: {
     app: { type: Object }
   },

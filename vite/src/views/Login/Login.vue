@@ -1,9 +1,8 @@
 <template>
   <div class="login-view">
-    <card
-      :primary="app.theme.primary"
-      :secondary="app.theme.border"
-      flat>
+    <card :primary="app.theme.primary"
+          :secondary="app.theme.border"
+          flat>
       <template v-slot:main>
         <div class="title">
           <h2>{{$t('message.text.login')}}</h2>
@@ -11,16 +10,23 @@
         <div class="line">
           <span :style="{width: '100px'}">{{$t('message.text.username')}}:&nbsp</span>
           <gen-text-box v-model:value="login_.username"
-                        text :primary="app.theme.border"
+                        text autoComplete
+                        :primary="app.theme.border"
                         :secondary="app.theme.strong"
-                        flat l width="250px"></gen-text-box>
+                        flat l width="20rem"></gen-text-box>
         </div>
         <div class="line">
           <span :style="{width: '100px'}">{{$t('message.text.password')}}:&nbsp</span>
           <gen-text-box v-model:value="login_.password"
-                        password :primary="app.theme.border"
+                        password autoComplete
+                        :primary="app.theme.border"
                         :secondary="app.theme.strong"
-                        flat l width="250px"></gen-text-box>
+                        flat l width="20rem"></gen-text-box>
+        </div>
+      </template>
+      <template v-slot:action>
+        <div class="line">
+          {{login.message ? $t('message.messages.' + login.message) : ''}}
         </div>
         <div class="line">
           <btn-group>
@@ -28,8 +34,9 @@
                      :primary="app.theme.primary"
                      :secondary="app.theme.strong"
                      xl border margin>{{$t('message.button.login')}}</gen-btn>
-            <gen-btn :primary="app.theme.primary"
-                     :secondary="app.theme.strong"
+            <gen-btn @click="signUp"
+                     :primary="app.theme.primary"
+                     :secondary="app.theme.secondary"
                      xl border margin>{{$t('message.button.signUp')}}</gen-btn>
           </btn-group>
         </div>
@@ -39,18 +46,10 @@
 </template>
 
 <script>
-import GenBtnFlat from "@/components/Generic/GenBtnFlat/GenBtnFlat.vue";
-import GenTextBox from "@/components/Generic/GenTextBox/GenTextBox.vue";
-import Card from "@/components/Generic/Card/Card.vue";
-import BtnGroup from "@/components/Generic/BtnGroup/BtnGroup.vue";
-import GenBtn from "@/components/Generic/GenBtn/GenBtn.vue";
-import Loading from "@/components/Generic/Loading/Loading.vue";
-
 import user from "@/api/user/user.js"
 
 export default {
   name: "Login.vue",
-  components: {Loading, GenBtn, BtnGroup, Card, GenTextBox, GenBtnFlat},
   props: {
     app: { type: Object }
   },
@@ -60,7 +59,7 @@ export default {
       login_: {
         username: '',
         password: '',
-        loading: false
+        message: ''
       },
       user: {
         uid: '',
@@ -72,6 +71,8 @@ export default {
   },
   methods: {
     login() {
+      this.login.message = ''
+
       let formData = new FormData()
 
       formData.append('username', this.login_.username)
@@ -82,18 +83,20 @@ export default {
         this.loginSuccess,
         this.loginFailed
       )
-
-      this.login_.loading = true
     },
-    loginSuccess(res) {
-      console.log(res)
-      this.user = res.user
-      this.login_.loading = false
+    signUp() {
+      this.$router.push({ name: 'SignUp' })
+    },
+    loginSuccess(json) {
+      if (json.status === false) {
+        this.loginFailed(json.message)
+        return
+      }
+      this.user = json.user
       this.$emit('loginSuccess', this.user)
     },
     loginFailed(e) {
-      console.log(e)
-      this.login_.loading = false
+      this.login.message = e
     }
   }
 }
@@ -112,13 +115,13 @@ export default {
     align-items: center;
 
     .title {
-      margin: 30px;
+      margin: 4rem;
     }
     .line {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 10px 20px;
+      margin: .5rem 1rem;
     }
   }
 </style>

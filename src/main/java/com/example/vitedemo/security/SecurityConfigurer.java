@@ -29,12 +29,9 @@ import java.io.PrintWriter;
 public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 
   @Bean
-  BCryptPasswordEncoder getPasswordEncoder() {
+  public BCryptPasswordEncoder getPasswordEncoder() {
     return new BCryptPasswordEncoder();
   }
-
-  @Autowired
-  BCryptPasswordEncoder bCryptPasswordEncoder;
 
   @Bean
   UserDetailsService getUserDetailsService() {return new SecurityUserDetailsService();}
@@ -67,6 +64,8 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 
       .authorizeRequests()
         .antMatchers("/h2-console", "/h2-console/*").hasAnyAuthority("admin")
+        .antMatchers("/api/user/*").authenticated()
+        .antMatchers("/api/author/*").permitAll()
         .anyRequest().permitAll()
 
       .and()

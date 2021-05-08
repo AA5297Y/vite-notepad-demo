@@ -4,6 +4,7 @@ const fetch_ = {
     await fetch(req, {
       method: 'POST',
       cache: 'reload',
+      redirect: 'manual',
       body: params
     }).then(response => {
       if (response.ok) {
@@ -19,6 +20,8 @@ const fetch_ = {
           onComplete(json)
         }
       })
+    }).catch((error) => {
+      onFailed(error)
     })
   },
   post: async function (url, body, onComplete, onFailed) {
@@ -26,6 +29,7 @@ const fetch_ = {
     await fetch(req, {
       method: 'POST',
       cache: 'reload',
+      redirect: 'manual',
       body: body
     }).then(response => {
       if (!response.ok) {
@@ -42,6 +46,8 @@ const fetch_ = {
           onComplete(json)
         }
       })
+    }).catch((error) => {
+      onFailed(error)
     })
   }
 }

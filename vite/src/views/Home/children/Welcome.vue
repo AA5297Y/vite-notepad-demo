@@ -40,14 +40,8 @@
 </template>
 
 <script>
-import GenBtn from "@/components/Generic/GenBtn/GenBtn.vue"
-import GenBtnFlat from "@/components/Generic/GenBtnFlat/GenBtnFlat.vue";
-import Card from "@/components/Generic/Card/Card.vue";
-import BtnGroup from "@/components/Generic/BtnGroup/BtnGroup.vue";
-import Spacing from "@/components/Generic/Spacing/Spacing.vue";
 export default {
   name: "Welcome",
-  components: {BtnGroup, GenBtnFlat, Card, GenBtn, Spacing},
   emits: ['toMe'],
   props: {
     app: { type: Object }
@@ -62,9 +56,6 @@ export default {
     }
   },
   methods: {
-    me() {
-      this.$router.push({name: 'User/Me'})
-    },
     compRecentTime(timeStr) {
       let now = new Date()
       let date = new Date(timeStr)
